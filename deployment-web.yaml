@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-web-deployment
+  labels:
+    app: my-k8s-web-app
+spec:
+  selector:
+    matchLabels:
+      project: first
+  template:
+    metadata:
+      labels:
+        project: first
+    spec:
+      containers:
+        - name: first-web
+          image: jeka4el/k8s-nginx:v1
+          ports:
+            - containerPort: 80
+
+
